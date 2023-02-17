@@ -4,13 +4,12 @@
  *
  * Versao 1.0.0 10/11/2021
  * Versao 1.0.1 16/08/2022
+ * Versao 2.0.0 14/12/2022
  */
-
 
 /* A  LEF é uma lista que armazena eventos ordenados pelo membro tempo 
  * do tipo evento_t. Cada evento pode ter um tipo e armazenar em dados 
  * diferentes estruturas de dados que permitem descrever cada evento. */
-
 
 /*
  * evento_t possui os dados que descrevem os eventos 
@@ -36,20 +35,18 @@ typedef struct nodo_lef {
  * Representacao da LEF 
  */
 typedef struct lef {
-    nodo_lef_t  *Primeiro;
+    nodo_lef_t *Primeiro;
 } lef_t;
 
 /* 
  * Cria uma LEF vazia 
  */
-lef_t * cria_lef ();
+lef_t *cria_lef ();
 
 /* 
- * Destroi a LEF, sempre retorna NULL. 
- * Para evento eh necessario executar a funcao destroidados para liberar os dados 
- * que representam o evento.
+ * Destroi a LEF e retorna NULL. 
  */ 
-lef_t * destroi_lef (lef_t *l);
+lef_t *destroi_lef (lef_t *l);
 
 /* 
  * Adiciona um evento na primeira posicao da LEF. Uma nova copia
@@ -63,11 +60,12 @@ int adiciona_inicio_lef (lef_t *l, evento_t *evento);
  * Uma nova copia da estrutura evento sera feita 
  * Retorna 1 em caso de sucesso, 0 caso contrario.
  */
-int adiciona_ordem_lef  (lef_t *l, evento_t *evento);
+int adiciona_ordem_lef (lef_t *l, evento_t *evento);
 
 /* 
- * Retorna o primeiro evento da LEF. A responsabilidade por desalocar
- * a memoria associado eh de quem chama essa funcao 
+ * Retorna e retira o primeiro evento da LEF. 
+ * A responsabilidade por desalocar
+ * a memoria associada eh de quem chama essa funcao.
  */
-evento_t * obtem_primeiro_lef (lef_t *l);
+evento_t *obtem_primeiro_lef (lef_t *l);
 
